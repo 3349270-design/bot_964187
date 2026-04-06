@@ -1,1 +1,9 @@
-IyBUZWxlZ3JhbSBCb3QKCjEuINCh0L7Qt9C00LDQudGC0LUg0L/QtdGA0LXQvNC10L3QvdGD0Y4g0L7QutGA0YPQttC10L3QuNGPIEJPVF9UT0tFTiDRgSDRgtC+0LrQtdC90L7QvCDQstCw0YjQtdCz0L4g0LHQvtGC0LAuCjIuINCj0YHRgtCw0L3QvtCy0LjRgtC1INC30LDQstC40YHQuNC80L7RgdGC0Lgg0LjQtyByZXF1aXJlbWVudHMudHh0LgozLiDQl9Cw0L/Rg9GB0YLQuNGC0LUg0LHQvtGC0LAg0YEg0L/QvtC80L7RidGM0Y4g0LrQvtC80LDQvdC00YsgcHl0aG9uIG1haW4ucHkuCjQuINCd0LDRh9C90LjRgtC1INC+0LHRidCw0YLRjNGB0Y8g0YEg0LHQvtGC0L7QvCDQsiBUZWxlZ3JhbS4KClshW0RlcGxveSBvbiBSYWlsd2F5XShodHRwczovL3JhaWx3YXkuYXBwL2J1dHRvbi5zdmcpXShodHRwczovL3JhaWx3YXkuYXBwL25ldz9yZXBvc2l0b3J5PWh0dHBzOi8vZ2l0aHViLmNvbS8zMzQ5MjcwLWRlc2lnbi9ib3RfOTY0MTg3KQ==
+# Telegram Bot
+
+## Инструкция
+1. Создайте бота у @BotFather, получите токен.
+2. Установите переменную окружения BOT_TOKEN.
+3. Установите зависимости: `pip install -r requirements.txt`
+4. Запустите бота: `python main.py`
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?repository=https://github.com/3349270-design/bot_964187)
