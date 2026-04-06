@@ -1,1 +1,28 @@
-aW1wb3J0IG9zCmZyb20gdGVsZWdyYW0gaW1wb3J0IFVwZGF0ZQpmcm9tIHRlbGVncmFtLmV4dCBpbXBvcnQgQXBwbGljYXRpb25CdWlsZGVyLCBDb21tYW5kSGFuZGxlciwgQ29udGV4dFR5cGVzCgpUT0tFTiA9IG9zLmVudmlyb24uZ2V0KCdCT1RfVE9LRU4nKQoKYXN5bmMgZGVmIHN0YXJ0KHVwZGF0ZTogVXBkYXRlLCBjb250ZXh0OiBDb250ZXh0VHlwZXMuREVGQVVMVF9UWVBFKToKICAgIGF3YWl0IGNvbnRleHQuYm90LnNlbmRfbWVzc2FnZShjaGF0X2lkPXVwZGF0ZS5lZmZlY3RpdmVfY2hhdC5pZCwgdGV4dD0n0J/RgNC40LLQtdGCISDQryDQsdC+0YIuJykKCmFzeW5jIGRlZiBoZWxwKHVwZGF0ZTogVXBkYXRlLCBjb250ZXh0OiBDb250ZXh0VHlwZXMuREVGQVVMVF9UWVBFKToKICAgIGF3YWl0IGNvbnRleHQuYm90LnNlbmRfbWVzc2FnZShjaGF0X2lkPXVwZGF0ZS5lZmZlY3RpdmVfY2hhdC5pZCwgdGV4dD0n0JTQvtGB0YLRg9C/0L3Ri9C1INC60L7QvNCw0L3QtNGLOiAvc3RhcnQsIC9oZWxwLCAvaW5mbycpCgphc3luYyBkZWYgaW5mbyh1cGRhdGU6IFVwZGF0ZSwgY29udGV4dDogQ29udGV4dFR5cGVzLkRFRkFVTFRfVFlQRSk6CiAgICBhd2FpdCBjb250ZXh0LmJvdC5zZW5kX21lc3NhZ2UoY2hhdF9pZD11cGRhdGUuZWZmZWN0aXZlX2NoYXQuaWQsIHRleHQ9J9CvINCx0YvQuyDRgdC+0LfQtNCw0L0gQUkt0LPQtdC90LXRgNCw0YLQvtGA0L7QvC4nKQoKYXN5bmMgZGVmIHVua25vd24odXBkYXRlOiBVcGRhdGUsIGNvbnRleHQ6IENvbnRleHRUeXBlcy5ERUZBVUxUX1RZUEUpOgogICAgYXdhaXQgY29udGV4dC5ib3Quc2VuZF9tZXNzYWdlKGNoYXRfaWQ9dXBkYXRlLmVmZmVjdGl2ZV9jaGF0LmlkLCB0ZXh0PSfQndC1INC/0L7QvdC40LzQsNGOIDooJykKCmlmIF9fbmFtZV9fID09ICdfX21haW5fXyc6CiAgICBhcHBsaWNhdGlvbiA9IEFwcGxpY2F0aW9uQnVpbGRlcigpLnRva2VuKFRPS0VOKS5idWlsZCgpCiAgICBhcHBsaWNhdGlvbi5hZGRfaGFuZGxlcihDb21tYW5kSGFuZGxlcignc3RhcnQnLCBzdGFydCkpCiAgICBhcHBsaWNhdGlvbi5hZGRfaGFuZGxlcihDb21tYW5kSGFuZGxlcignaGVscCcsIGhlbHApKQogICAgYXBwbGljYXRpb24uYWRkX2hhbmRsZXIoQ29tbWFuZEhhbmRsZXIoJ2luZm8nLCBpbmZvKSkKICAgIGFwcGxpY2F0aW9uLmFkZF9oYW5kbGVyKE1lc3NhZ2VIYW5kbGVyKEZpbHRlcnMuY29tbWFuZCwgdW5rbm93bikpCiAgICBhcHBsaWNhdGlvbi5ydW5fcG9sbGluZygp
+import os
+from telegram import Update
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
+
+TOKEN = os.getenv("BOT_TOKEN")
+
+async def start(update: Update, context: CallbackContext):
+    await update.message.reply_text("Привет! Я бот.")
+
+async def help_command(update: Update, context: CallbackContext):
+    await update.message.reply_text("Доступные команды: /start, /help, /info")
+
+async def info(update: Update, context: CallbackContext):
+    await update.message.reply_text("Я был создан AI-генератором.")
+
+async def echo(update: Update, context: CallbackContext):
+    await update.message.reply_text("Не понимаю :(")
+
+def main():
+    app = Application.builder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("help", help_command))
+    app.add_handler(CommandHandler("info", info))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+    app.run_polling()
+
+if __name__ == "__main__":
+    main()
